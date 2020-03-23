@@ -78,6 +78,18 @@
                                     <i class="menu-icon fa fa-list-ul"></i><span style="padding:5px;">Todo list</span><i class="accordion-icon fa fa-angle-left"></i>
                                 </a>
                             </li>
+                             <li class="menu-divider"></li>
+                              <li>
+                                   {% if user.is_authenticated %}
+                                    
+
+                                        <form action="{% url 'logoutuser' %}" method="POST">
+                                            {% csrf_token %}
+                                            <li><a href="#"><button style="border:white;" class="btn btn-default" type="submit">Logout</button></a></li><br>
+                                        </form>
+
+                                    {% endif %}
+                            </li>
 
 
 
