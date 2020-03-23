@@ -46,7 +46,7 @@
                     {% if user.is_authenticated %}
 
                 <a class="logo-box" href="{% url 'todopage' %}">
-                    Todo
+                   <span style="padding:5px;">Todo</span>
                     <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
                     <i class="icon-close" id="sidebar-toggle-button-close"></i>
                 </a>
@@ -142,7 +142,7 @@
 
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
+                                    <li><a href="" id="collapsed-sidebar-toggle-button"></a></li>
                                     <li><a href="javascript:void(0)" id="toggle-fullscreen"><i class="fa fa-expand"></i></a></li>
 
                                 </ul>
