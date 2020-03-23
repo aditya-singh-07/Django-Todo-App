@@ -1,0 +1,116 @@
+{% extends "todo/base.html" %}
+                <!-- Page Inner -->
+{% block content %}
+                <div class="page-inner">
+
+                    <div class="page-title">
+                        <h3 class="breadcrumb-header"><i class="fas fa-clipboard-list"></i> Todo List</h3>
+                    </div>
+                <div id="main-wrapper">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-white">
+                                 Today Date <p maxlength="10" id="date"></p>
+                                <div class="panel-body">
+
+                                   <ul class="nav nav-pills todo-nav">
+                                        <li role="presentation" class="active all-task"><a href="{% url 'todopage' %}">Current</a></li>
+
+                                        <li role="presentation" class="completed-task"><a href="{% url 'completed' %}">completed</a></li>
+                                    </ul>
+                                    <div class="todo-list">
+                                        <div class="todo-item">
+                                       <style>
+   #panel{
+
+  opacity: 0.9;
+   margin-right: 15px;
+   border:1px solid #424242 ;
+    font-size:13px;
+
+   }
+
+  #panel:hover{
+   transform: translateY(-3px);
+ }
+ #button{
+float:left;
+margin:0px;
+ }
+ span{
+ padding-left:10px;
+
+
+ }
+
+ #panel li {
+ list-style:none;
+ }
+@media only screen and (max-width: 411px) {
+#button{
+font-size: 8px;
+letter-spacing:2px;
+
+}
+}
+@media only screen and (max-width: 360px) {
+#button{
+
+float:left;
+}
+}
+
+.btn-circle {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  padding: 6px 0;
+  font-size:6px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+#button:hover{
+ background-color:#0070E0;
+}
+.icon-d {
+    color:  #d50000;
+    font-size:20px;
+}
+                                    </style>
+                                            <script>
+                                                $(function () {
+                  $('[data-toggle="complete task"]').tooltip()
+                })
+                                            </script>
+                                        <ul>
+    {% for todo in todos %}
+  <div id="panel" class="panel panel-white ">
+    <li>
+         <form method="POST" action="{% url 'completetodo' todo.id %}">
+                            {% csrf_token %}
+             <button type="submit"  id="button" class="btn btn-default btn-circle" data-toggle="tooltip" data-placement="left"
+  title="complete task"></button>
+
+                        </form>
+       <span style="font-size:15px; letter-spacing:1px;"> {% if todo.important %} <i class=" icon-star icon-large icon-d pull-right"> </i><b> {% endif %} <a href="{% url 'viewtodo' todo.id %}">{{ todo.todotitle }}</a> {% if todo.important %}</b>{% endif %}</span><br>-
+        {% if todo.notes %} <span style="font-size:15px; letter-spacing:1px;">{{ todo.notes }} </span> {% endif %}
+
+    </li>
+            </div>
+    {% endfor %}
+</ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Row -->
+                </div><!-- Main Wrapper -->
+
+                <div class="page-footer">
+                    <p>Made with <i class="fa fa-heart"></i> by Aditya</p>
+                </div>
+                </div><!-- /Page Inner -->
+
+{% endblock %}

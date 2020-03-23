@@ -1,0 +1,15 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+Login as {{ user.username }}
+<a href="{% url 'createtodo' %}">create todo</a>
+<h1>completed todo</h1>
+<ul>
+    {% for todo in todo %}
+    <li>
+        {% if todo.important %} <b> {% endif %} <a href="#">{{ todo.todotitle }} </a> {% if todo.important %}</b>{% endif %} --
+         {% if todo.notes %}{{ todo.notes }} {% endif %}
+        {{ todo.completed }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

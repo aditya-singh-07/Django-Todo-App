@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Todo</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+ 
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+ 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+
+  <link href="{% static 'asset/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+  <link href="{% static 'asset/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  
+  <section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix">
+      <div class="contact-info float-left">
+        <i class="fa fa-envelope-o"></i> <a href="mailto:adityakusumlata@gmail.com">adityakusumlata@gmail.com</a>
+        <i class="fa fa-phone"></i> +91 8454848061
+      </div>
+      <div class="social-links float-right">
+        <a href="https://github.com/aditya-singh-07" class="github"><i class="fa fa-github"></i></a>
+        <a href="https://m.facebook.com/adityakusumlata" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.instagram.com/_aditya_singh.07/" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/aditya-singh-76a887157" class="linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+
+
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#topbar" class="scrollto">Tod<span>o</span></a></h1>
+     
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#topbar">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="http://adityasingh-portfolio.herokuapp.com/">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+           {% if user.is_authenticated %}
+                                        <form action="{% url 'logoutuser' %}" method="POST">
+                                            {% csrf_token %}
+                                            <li><a href="#"><button id="logout" class="btn btn-sm" type="submit"><strong>Logout</strong></button></a></li>
+                                        </form>
+          {% else %}
+          <li><a href="{% url 'signupuser' %}">Signup</a></li>
+          <li><a href="{% url 'loginuser' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <section id="intro">
+
+    <div class="intro-content">
+      <h2>Manage To<span>do</span><br>more reliable!</h2>
+      <div>
+        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <a href="{% url 'signupuser' %}" class="btn-projects scrollto">Sign Up</a>
+      </div>
+    </div>
+
+    <div id="intro-carousel" class="owl-carousel">
+      <div class="item" style="background-image: url({% static 'asset/img/intro-carousel/1.jpg' %});"></div>
+      <div class="item" style="background-image: url({% static 'asset/img/intro-carousel/2.jpg'%});"></div>
+      <div class="item" style="background-image: url({% static 'asset/img/intro-carousel/3.jpg'%});"></div>
+      <div class="item" style="background-image: url({% static 'asset/img/intro-carousel/4.jpg'%});"></div>
+      <div class="item" style="background-image: url({% static 'asset/img/intro-carousel/5.jpg'%});"></div>
+    </div>
+
+  </section>
+
+  <main id="main">
+
+    <section id="about" class="wow fadeInUp">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 about-img">
+            <img src="{% static 'asset/img/pc.jpg' %}" alt="">
+          </div>
+
+          <div class="col-lg-6 content">
+            <h2><span style="font-size: 35px; color:#50d8af">Focus</span> to make things easier</h2>
+            <h3>Manage your tasks very easy and making your  To<span style="color:#50d8af;font-weight: bold;"> do</span> list accessible everywhere.</h3>
+
+        
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+ 
+    <section id="contact" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <address>Navi mumbai</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p><a href="#">+91 8454848061</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:adityakusumlata@gmail.com">adityakusumlata@gmail.com</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container mb-4">
+       
+        <div style="width: 100%"><iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=navi%20mumbai+(Web%20developer)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">find my coordinates</a></iframe></div><br />
+      </div>
+    
+    </section>
+
+  </main>
+
+
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="#">Aditya Singh</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+ 
+  <script src="{% static 'asset/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'asset/vendor/wow/wow.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+  <script src="{% static 'asset/vendor/superfish/superfish.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/hoverIntent/hoverIntent.js' %}"></script>
+
+ 
+  <script src="{% static 'asset/js/main.js' %}"></script>
+
+</body>
+</html>

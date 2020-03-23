@@ -1,0 +1,73 @@
+{% extends "todo/base.html" %}
+                <!-- Page Inner -->
+{% block content %}
+                <div class="page-inner">
+                    <div class="page-title">
+                        <h3 class="breadcrumb-header">Todo</h3>
+                    </div>
+                <div id="main-wrapper">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-white">
+                                 Today Date <p maxlength="10" id="date"></p>
+                                <div class="panel-body">
+
+                                    <ul class="nav nav-pills todo-nav">
+                                        <li role="presentation" class="active-task"><a href="{% url 'todopage' %}">Current</a></li>
+                                        <li role="presentation" class="active all-task"><a href="{% url 'completed' %}">completed</a></li>
+                                    </ul>
+                                    <div class="todo-list">
+                                        <div class="todo-item">
+                                            <style>
+                                                .complete{
+                                                float:right;
+                                                opacity:0.8;
+                                                }
+
+ #button{
+float:left;
+margin:0px;
+ }
+
+ .todo-item li {
+ list-style:none;
+ }
+ span{
+ padding-left:10px;
+ }
+.btn-circle {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  padding: 6px 0;
+  font-size:6px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+
+ </style>
+<ul>
+    {% for todo in todo %}
+    <li>
+        <button type="submit"  id="button" class="btn btn-success btn-circle btn-lg" data-toggle="tooltip" data-placement="left"
+  title="completed"><i class="glyphicon glyphicon-ok"></i></button>
+        <span class style="font-size:15px; letter-spacing:1px;"> {% if todo.important %} <b> {% endif %} <a href="#">{{ todo.todotitle }} </a> {% if todo.important %}</b>{% endif %}</span><br>-
+        {% if todo.notes %}<span class style="padding-left:25px; font-size:15px; letter-spacing:1px;">{{ todo.notes }} </span> {% endif %}
+        <span class="complete">{{ todo.completed }}</span>
+    </li><hr> <br>
+    {% endfor %}
+</ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Row -->
+                </div><!-- Main Wrapper -->
+                <div class="page-footer">
+                    <p>Made with <i class="fa fa-heart"></i> by Aditya</p>
+                </div>
+                </div><!-- /Page Inner -->
+
+{% endblock %}

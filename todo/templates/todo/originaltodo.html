@@ -1,0 +1,14 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+<a href="{% url 'createtodo' %}">Create todo</a>
+<a href="{% url 'todopage'  %}">Current todo</a>
+<a href="{% url 'completed' %}">completed todo</a>
+<ul>
+    {% for todo in todos %}
+    <li>
+        {% if todo.important %} <b> {% endif %} <a href="{% url 'viewtodo' todo.id %}">{{ todo.todotitle }} </a> {% if todo.important %}</b>{% endif %} --
+         {% if todo.notes %}{{ todo.notes }} {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

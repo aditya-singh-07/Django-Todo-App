@@ -1,0 +1,41 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+ <div class="page-inner"> {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+     {% endif %}
+              <div class="page-title">
+
+                        <h3 class="breadcrumb-header"><i class="fa fa-plus"></i>  Create Todo</h3>
+                    </div>
+                <div id="main-wrapper">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-white">
+                                 Today Date <p maxlength="10" id="date"></p>
+                                <div class="panel-body">
+                                      <div class="todo-list">
+
+
+
+<form method="POST" style="padding:5px;">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+     <button type="submit" id="myBtn" class="btn btn-default">create</button>
+</form>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Row -->
+                </div><!-- Main Wrapper -->
+
+                <div class="page-footer">
+                    <p>Made with <i class="fa fa-heart"></i> by Aditya</p>
+                </div>
+                </div><!-- /Page Inner -->
+{% endblock %}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Todo</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+
+  <link href="{% static 'asset/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+  <link href="{% static 'asset/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+  <section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix">
+      <div class="contact-info float-left">
+        <i class="fa fa-envelope-o"></i> <a href="mailto:adityakusumlata@gmail.com">adityakusumlata@gmail.com</a>
+        <i class="fa fa-phone"></i> +91 8454848061
+      </div>
+      <div class="social-links float-right">
+        <a href="https://github.com/aditya-singh-07" class="github"><i class="fa fa-github"></i></a>
+        <a href="https://m.facebook.com/adityakusumlata" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.instagram.com/_aditya_singh.07/" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/aditya-singh-76a887157" class="linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+
+
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#topbar" class="scrollto">Tod<span>o</span></a></h1>
+
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#topbar">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="http://adityasingh-portfolio.herokuapp.com/">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="{% url 'signupuser' %}">Signup</a></li>
+          <li><a href="{% url 'loginuser' %}">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+{% block content %}
+
+
+
+  {% endblock %}
+
+
+
+
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="#">Aditya Singh</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+  <script src="{% static 'asset/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'asset/vendor/wow/wow.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+  <script src="{% static 'asset/vendor/superfish/superfish.min.js' %}"></script>
+  <script src="{% static 'asset/vendor/hoverIntent/hoverIntent.js' %}"></script>
+
+
+  <script src="{% static 'asset/js/main.js' %}"></script>
+
+</body>
+</html>

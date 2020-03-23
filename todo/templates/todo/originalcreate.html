@@ -1,0 +1,12 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+Login as {{ user.username }}
+<h1>create todo</h1>
+<h1>{{ error }}</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">create!!</button>
+</form>
+{% endblock %}

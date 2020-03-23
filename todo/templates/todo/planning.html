@@ -1,0 +1,110 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+ <div class="page-inner"> {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+     {% endif %}
+              <div class="page-title">
+                   Login as {{ user.username }}
+                        <h3 class="breadcrumb-header"><i class=" icon-star-empty icon-large icon-d"> </i>planning Todo</h3>
+                    </div>
+                <div id="main-wrapper">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="panel" class="panel panel-white">
+                                <div class="panel-body">
+                                      <div class="todo-list">
+                                          <style>
+  #panel li {
+ list-style:none;
+ }
+ .breadcrumb-header{
+ color:#d50000;
+ }
+ #panel{
+
+ }
+
+                                              .btn-circle {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  padding: 6px 0;
+  font-size:6px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+#button:hover{
+ background-color:#0070E0;
+}
+.icon-d {
+    color:  #d50000;
+    font-size:20px;
+}
+
+                                          </style>
+                                          <style>
+  @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+body{
+    background: #f2f2f2;
+    font-family: 'Poppins', sans-serif;
+}
+
+h3{
+    font-family: 'Poppins', sans-serif;
+}
+
+.social-box .box{
+    background: #FFF;
+    border-radius: 10px;
+    padding: 40px 10px;
+    margin: 20px 0px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.social-box .box:hover{
+   box-shadow: 0 0 6px #4183D7;
+}
+
+.social-box .box .box-text{
+    margin:20px 0px;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+                                          </style>
+                                      <ul> {% for planning in plannings %}
+
+							                        <li>
+
+
+                                                        <button type="submit"  id="button" class="btn btn-default btn-circle" data-toggle="tooltip" data-placement="left"
+  title="complete task"></button><i class=" icon-star icon-large icon-d pull-right"> </i>
+                                                   <span class style=" padding-left:20px; font-size:15px; letter-spacing:1px;">
+                                                       <a href="{% url 'viewtodo' planning.id %}"><b>{{ planning.todotitle }}</b></a></span><br>-
+                                                         <span class style="padding-left:20px; font-size:15px; letter-spacing:1px;">{{ planning.notes }} </span>
+                                              </li>
+
+
+
+                                              {% endfor %}
+
+                                          </ul>
+
+
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Row -->
+                </div><!-- Main Wrapper -->
+
+                <div class="page-footer">
+                    <p>Made with <i class="fa fa-heart"></i> by Aditya</p>
+                </div>
+                </div><!-- /Page Inner -->
+{% endblock %}
