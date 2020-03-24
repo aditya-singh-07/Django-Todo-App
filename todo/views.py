@@ -15,7 +15,10 @@ from .models import Todo
 from django.contrib.auth.decorators import login_required
 
 def home(request):
-    return render(request, 'todo/index.html')
+    if request.user.is_authenticated:
+        return redirect('todopage')
+    else:
+        return render(request, 'todo/index.html')
 
 def signupuser(request):
     if request.method == 'GET':
